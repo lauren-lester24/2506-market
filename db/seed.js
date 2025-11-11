@@ -27,7 +27,7 @@ async function seed() {
   const order = await createOrder(user.id, "2025-11-10", "First Order");
 
 
-  for (let i = 1; i <= 2; i++) {
+  for (let i = 1; i <= 5; i++) {
 await addProductToOrder(order.id, i, 1);
   }
   
