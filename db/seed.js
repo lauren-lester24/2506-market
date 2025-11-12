@@ -19,7 +19,7 @@ async function seed() {
     await createProduct(
       "Product" + i, 
       "Description for Product" + i,
-      i * 100
+      i * 10
     );
   }
   const user = await createUser("Eagles", "EaglesRock");
