@@ -14,3 +14,12 @@ const {
 return order;
 }
 
+export async function getOrdersByUsers(userId) {
+    const sql = `
+    SELECT * FROM orders
+    WHERE user_id = $1
+    ORDER BY date DESC;
+    `;
+    const { rows } = await db.query(sql, [userId]);
+    return rows;
+}

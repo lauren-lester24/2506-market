@@ -5,6 +5,7 @@ import requireBody from "#middleware/requireBody";
 const router = express.Router();
 
 import { createOrder } from "#db/queries/orders";
+import { getOrdersByProductIdAndUser } from "#db/queries/products";
 
 router.post("/",
     requireUser,
@@ -34,11 +35,20 @@ router.post("/",
 
 
 
-// router.get("/", async (req, res) => {
-// const orders = await getOrders();
-// res.send(orders);
+router.get("/", 
+   requireUser,
+    async (req, res) => {
+        try {
+            const userId = req.user.id;
+            const orders = await getOrdersByUsers(userId);
 
-// })
+            res.status(200).send(orders);
+        } catch (error) {
+            console.error(error);
+              res.status(500).send("Internal Server Error");
+        }
+
+});
 
 
 
