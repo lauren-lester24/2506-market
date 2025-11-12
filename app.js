@@ -1,7 +1,7 @@
 
 import express from "express";
 import usersRouter from "#api/users";
-// import ordersRouter from "#api/orders";
+import ordersRouter from "#api/orders";
 import productsRouter from "api/products";
 import getUserFromToken from "#middleware/getUserFromToken";
 
@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(getUserFromToken);
 
 app.use("/users", usersRouter);
-// app.use("/orders", ordersRouter);
+app.use("/orders", ordersRouter);
 app.use("/products", productsRouter);
 
 
