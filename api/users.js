@@ -1,10 +1,9 @@
 import express from "express";
 
-
-
-
-
-import { createUser, getUserByUsernameAndPassword } from "#db/queries/users";
+import { 
+    createUser, 
+    getUserByUsernameAndPassword 
+} from "#db/queries/users";
 import { createToken } from "#utils/jwt";
 
 import requireBody from "#middleware/requireBody"

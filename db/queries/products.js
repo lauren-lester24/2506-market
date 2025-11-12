@@ -39,7 +39,7 @@ export async function getProductById(id) {
     const {
         rows: [product],
          } = await db.query(sql, [id]);
-        return product;
+        return product || null;
    
 }  catch (error) {
         console.error("Error Fetching Product by ID.", error);

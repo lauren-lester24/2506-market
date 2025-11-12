@@ -23,3 +23,12 @@ export async function getOrdersByUsers(userId) {
     const { rows } = await db.query(sql, [userId]);
     return rows;
 }
+
+export async function getOrderById(id) {
+    const sql = `
+    SELECT * FROM orders
+    WHERE id = $1
+    `;
+    const { rows } = await db.query(sql, [id]);
+    return rows[0];
+}
